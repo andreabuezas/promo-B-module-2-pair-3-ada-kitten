@@ -1,6 +1,6 @@
 "use strict" ;
 
-
+// meter tarjetas gatos
 
 const kittenOne = `<li class="card">
 <article>
@@ -43,3 +43,29 @@ Sus ojos son grandes y las orejas resultan largas y en punta.
 const list = document.querySelector(".js-list") ;
 
 list.innerHTML = kittenOne + kittenTwo + kittenThree;
+
+
+// mostrar y ocultar formulario
+const button = document.querySelector(".js-btn-add");
+const newForm = document.querySelector(".new-form");
+
+button.addEventListener('click', ()=>{
+    newForm.classList.toggle('collapsed');
+});
+
+
+// ocultar la sección del formulario al hacer clic en el botón cancelar
+// vaciar inputs al hacer clic en cancelar
+
+const cancel = document.querySelector(".button-cancel");
+const form = document.querySelector(".form");
+
+cancel.addEventListener('click', ()=>{
+    newForm.classList.add('collapsed');
+    form.elements[0].value = "";
+    form.elements[1].value = "";
+    form.elements[2].value = "";
+    form.elements[3].value = "";
+});
+
+
