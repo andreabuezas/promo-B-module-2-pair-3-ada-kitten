@@ -2,7 +2,7 @@
 
 
 
-const kittenOne = <li class="card">
+const kittenOne = `<li class="card">
 <article>
     <img class="card_img" src="https://dev.adalab.es/gato-siames.webp" alt="siames-cat" />
     <h3 class="card_title">Anastacio</h3>
@@ -11,10 +11,10 @@ const kittenOne = <li class="card">
     Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.
     </p>
 </article> 
-</li> ;
+</li>`;
 
 
-const kittenTwo = <li class="card">
+const kittenTwo =`<li class="card">
 <article>
 <img class="card_img" src="https://dev.adalab.es/sphynx-gato.webp" alt="sphynx-cat" />
 <h3 class="card_title">Fiona</h3>
@@ -25,9 +25,9 @@ hasta con pinta de alienígena han llegado a definir a esta raza
 gatuna que se caracteriza por la «ausencia» de pelo.
 </p>
 </article> 
-</li> ;
+</li>`;
 
-const kittenThree = <li class="card">
+const kittenThree =`<li class="card">
 <article>
 <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat" />
 <h3 class="card_title">Cielo</h3>
@@ -38,9 +38,8 @@ bella mirada se ha convertido en una de sus señas de identidad.
 Sus ojos son grandes y las orejas resultan largas y en punta.
 </p>
 </article>
-</li> ;
+</li>`;
 
 const list = document.querySelector(".js-list") ;
 
-list.innerHTML = kittenOne ;
-
+list.innerHTML = kittenOne + kittenTwo + kittenThree;
