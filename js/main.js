@@ -45,17 +45,37 @@ const kittenThree =`<li class="card kittenThree">
 </li>`;
 
 const list = document.querySelector(".js-list") ;
-
 list.innerHTML = kittenOne + kittenTwo + kittenThree;
 
 
+
 // Mostrar y ocultar formulario
-const button = document.querySelector(".js-btn-add");
+const buttonNewForm = document.querySelector(".js-btn-add");
 const newForm = document.querySelector(".new-form");
 
-button.addEventListener('click', ()=>{
-    newForm.classList.toggle('collapsed');
-});
+// buttonNewForm.addEventListener('click', ()=>{
+//     newForm.classList.toggle('collapsed');
+// });
+
+
+// revisar
+
+buttonNewForm.addEventListener("click", handleClickNewCatForm);
+
+function showNewCatForm() {
+  newForm.classList.remove("collapsed");
+}
+function hideNewCatForm() {
+  newForm.classList.add("collapsed");
+}
+
+function handleClickNewCatForm(event) {
+  if (newForm.classList.contains("collapsed")) {
+    showNewCatForm();
+    } else {
+      hideNewCatForm();
+    }
+}
 
 
 // Ocultar la sección del formulario al hacer clic en el botón cancelar + Vaciar inputs al hacer clic en cancelar
