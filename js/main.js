@@ -25,25 +25,6 @@ const kittenData_3 = {
   race: 'Maine Coon',
 };
 
-// Declarar los campos del gato 1
-// const kittenOneImg = "https://dev.adalab.es/gato-siames.webp";
-// const kittenOneName = "Anastacio";
-// const kittenOneBreed = "Siamés";
-// const kittenOneDescription = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
-
-// // Declarar los campos del gato 2
-// const kittenTwoImg = "https://dev.adalab.es/sphynx-gato.webp";
-// const kittenTwoName = "Fiona";
-// const kittenTwoBreed = "Sphynx";
-// const kittenTwoDescription = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
-
-// // Declarar los campos del gato 3
-// const kittenThreeImg = "https://dev.adalab.es/maine-coon-cat.webp";
-// const kittenThreeName = "Cielo";
-// const kittenThreeBreed = "Maine Coon";
-// const kittenThreeDescription = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
-
-
 // Declarar la función de renderizar tarjeta de gato con los 4 parámetros
 function renderKitten (img, name, breed, description) {
   return `<li class="card kitten">
@@ -99,6 +80,7 @@ function handleClickNewCatForm() {
 buttonNewForm.addEventListener("click", handleClickNewCatForm);
 
 
+
 // OCULTAR FORMULARIO Y BORRAR VALORES AL CANCELAR
 // Declarar botón de cancelar y formulario
 const cancel = document.querySelector(".button-cancel");
@@ -111,6 +93,7 @@ cancel.addEventListener('click', ()=>{
 });
 
 
+
 // FILTRAR: BÚSQUEDA POR DESCRIPCIÓN
 // Declarar botón de buscar y campo de descripción
 const searchButton = document.querySelector(".js_button-search");
@@ -118,15 +101,15 @@ const descriptionField = document.querySelector(".js_in_search_desc");
 
 const filterKitten = (event) => {
   event.preventDefault();
-  list.innerHTML = '';
+  list.innerHTML = ''; // Limpiar resultados previos
   const description = descriptionField.value; // esta declaración se hace dentro de la función pq si estuviera fuera, en el momento de renderizar la página estaría vacía
-  if (kittenOneDescription.includes(description)) {
+  if (kittenData_1.desc.includes(description)) {
     list.innerHTML += kittenOne;
-  }
-  if (kittenTwoDescription.includes(description)) {
+  } // hay que añadir .desc porque includes funciona sobre strings, y ahora kittenData_1 es un objeto
+  if (kittenData_2.desc.includes(description)) {
     list.innerHTML += kittenTwo;
   }
-  if (kittenThreeDescription.includes(description)) {
+  if (kittenData_3.desc.includes(description)) {
     list.innerHTML += kittenThree;
   }
 };
