@@ -105,7 +105,7 @@ cancel.addEventListener('click', ()=>{
 const searchButton = document.querySelector(".js_button-search");
 const descriptionField = document.querySelector(".js_in_search_desc");
 
-const filterKitten = (event) => {
+/*const filterKitten = (event) => {
   event.preventDefault();
   list.innerHTML = ''; // Limpiar resultados previos
   const description = descriptionField.value; // esta declaración se hace dentro de la función pq si estuviera fuera, en el momento de renderizar la página estaría vacía
@@ -119,6 +119,25 @@ const filterKitten = (event) => {
     list.innerHTML += kittenThree;
   }
 };
+*/
+
+const filterKitten = (event) => {
+  event.preventDefault();
+  list.innerHTML = ''; // Limpiar resultados previos
+  const description = descriptionField.value; // esta declaración se hace dentro de la función pq si estuviera fuera, en el momento de renderizar la página estaría vacía
+  for (const kittenItem of kittenDataList) {
+    //Completa el código
+    //Comprueba si cada gatito contiene la descripción
+    //Si la contiene pintamos un gatito
+    //utilizando la función renderKitten(kittenItem)
+
+    if (kittenItem.desc.includes(description)) {
+      list.innerHTML += kittenItem;
+    }
+  }
+
+};
+
 
 searchButton.addEventListener('click', filterKitten);
 
