@@ -25,30 +25,36 @@ const kittenData_3 = {
   race: 'Maine Coon',
 };
 
+// Lista con la información de todos los gatitos
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
+
+
 // Declarar la función de renderizar tarjeta de gato con los 4 parámetros
-function renderKitten (img, name, breed, description) {
-  return `<li class="card kitten">
+
+function pintarKitten (kitten) {
+  const article= `<li class="card kitten">
     <article>
-    <img class="card_img" src=${img} alt="siames-cat" />
-    <h3 class="card_title">${name.toUpperCase()}</h3>
-    <h4 class="card_race">${breed}</h4>
-    <p class="card_description"> ${description}</p>
+    <img class="card_img" src=${kitten.image} alt="siames-cat" />
+    <h3 class="card_title">${kitten.name.toUpperCase()}</h3>
+    <h4 class="card_race">${kitten.race}</h4>
+    <p class="card_description"> ${kitten.desc}</p>
     </article> 
-    </li>`;
-}
-
-// Declarar las variables con la función de renderizar para cada uno de los tres gatitos
-const kittenOne = renderKitten(kittenData_1.image, kittenData_1.name, kittenData_1.race, kittenData_1.desc);
-
-const kittenTwo = renderKitten(kittenData_2.image, kittenData_2.name, kittenData_2.race, kittenData_2.desc);
-
-const kittenThree = renderKitten(kittenData_3.image, kittenData_3.name, kittenData_3.race, kittenData_3.desc);
-
+    </li>
+  `;
+  return article;
+}; 
 // Declaramos el elemento ul del HTML que contiene la lista de gatitos
 const list = document.querySelector(".js-list") ;
 
-// Llamamos a la función de renderizar incluyendo las constantes para cada gatito
-list.innerHTML = kittenOne + kittenTwo + kittenThree;
+// Función para llamar a pintar viaje cogiendo los datos del array
+function listaKittens(){
+  for(const unKitten of kittenDataList){
+      list.innerHTML += pintarKitten(unKitten);
+  };
+};
+
+// llamamos a la función
+listaKittens();
 
 
 
@@ -115,3 +121,4 @@ const filterKitten = (event) => {
 };
 
 searchButton.addEventListener('click', filterKitten);
+
