@@ -105,22 +105,6 @@ cancel.addEventListener('click', ()=>{
 const searchButton = document.querySelector(".js_button-search");
 const descriptionField = document.querySelector(".js_in_search_desc");
 
-/*const filterKitten = (event) => {
-  event.preventDefault();
-  list.innerHTML = ''; // Limpiar resultados previos
-  const description = descriptionField.value; // esta declaración se hace dentro de la función pq si estuviera fuera, en el momento de renderizar la página estaría vacía
-  if (kittenData_1.desc.includes(description)) {
-    list.innerHTML += kittenOne;
-  } // hay que añadir .desc porque includes funciona sobre strings, y ahora kittenData_1 es un objeto
-  if (kittenData_2.desc.includes(description)) {
-    list.innerHTML += kittenTwo;
-  }
-  if (kittenData_3.desc.includes(description)) {
-    list.innerHTML += kittenThree;
-  }
-};
-*/
-
 const filterKitten = (event) => {
   event.preventDefault();
   list.innerHTML = ''; // Limpiar resultados previos
@@ -132,12 +116,9 @@ const filterKitten = (event) => {
     //utilizando la función renderKitten(kittenItem)
 
     if (kittenItem.desc.includes(description)) {
-      list.innerHTML += kittenItem;
+      list.innerHTML += pintarKitten(kittenItem);
     }
   }
-
 };
 
-
 searchButton.addEventListener('click', filterKitten);
-
